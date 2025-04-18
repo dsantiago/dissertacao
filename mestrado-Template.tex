@@ -1,0 +1,118 @@
+
+% \documentclass[rascunho,xindy,acronym,symbols]{article}
+% \usepackage[nolist,nohyperlinks]{acronym}
+
+\documentclass[rascunho,xindy,acronym,symbols]{package/fei}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[lmarging=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+%\usepackage[onehalfspacing]{setspace}
+%\usepackage[T1]{fontenc}
+%\usepackage[brazil]{babel}
+
+\usepackage{biblatex} %Imports biblatex package
+
+\usepackage{url}
+\usepackage{stix}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{ulem}
+\usepackage{pdfpages}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% \usepackage{natbib}
+
+%\usepackage
+%\usepackage[portugues,lined]{algorithm2e}
+%\usepackage[breaklinks=true]{hyperref}
+%\usepackage{breakcites}
+
+% \usepackage{easyReview} % READICIONAR
+
+%\newcommand\Tau{\mathcal{T}}
+%%%% -- Configuracoes Iniciais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Diogo F. de M. Santiago }
+\title{Análise de Imagens de Ressonância Magnética para Classificação de Cardiomiopatia com o Apoio de Mecanismos de Atenção }
+
+\input{variables.tex}
+% \subtitulo{subtítulo}
+
+%\cidade{Cidade}
+%\instituicao{Instituição de Ensino}
+
+%%%% -- Entradas Listas de Abreviaturas e Simbolos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lipsum}  
+
+%% -- Simbolos
+% \newglossaryentry{A}{type=symbols,name={\ensuremath{A}},sort=a,description={exchanger total heat transfer area, $m^2$}}
+% \newglossaryentry{G}{type=symbols,name={\ensuremath{G}},sort=g,description={exchanger flow-stream mass velocity, $kg/(s m^2)$}}
+% \newglossaryentry{f}{type=symbols,name={\ensuremath{j}},sort=j,description={friction factor, dimensionless}}
+% \newglossaryentry{deltap}{type=symbols,name={\ensuremath{\Delta P}},sort=p,description={pressure drop, $Pa$}}
+% \newglossaryentry{nu}{type=symbols,name={\ensuremath{\nu}},sort=b,description={specific volume, $m^3/kg$}}
+% \newglossaryentry{beta}{type=symbols,name={\ensuremath{\beta}},sort=b,description={ratio of free-flow area $A_{ff}$ and frontal area $A_{fr}$ of one side of exchanger, dimensionless}}
+% \newglossaryentry{fr}{type=symbols,name={\ensuremath{fr}},sort=fr,description={frontal}}
+% \newglossaryentry{in}{type=symbols,name={\ensuremath{i}},sort=in,description={inlet}}
+% \newglossaryentry{out}{type=symbols,name={\ensuremath{o}},sort=out,description={outlet}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addbibresource{refs.bib}
+
+\makeglossaries
+\makeindex
+
+\begin{document}
+
+\input{B-abreviaturas}
+
+
+\maketitle
+\begin{folhaderosto}
+Proposta de Mestrado apresentada ao Centro Universitário FEI, como parte dos requisitos necessários para obtenção do título de Mestre em Engenharia Elétrica. Orientado pela Profa. Dra. Leila Cristina C. Bergamasco.
+\end{folhaderosto}
+
+% \fichacatalografica
+% \folhadeaprovacao
+
+% \dedicatoria{A quem eu quero dedicar o texto.}
+
+% \include{agradecimentos}
+
+
+% \epigrafe{A good scientist is a person with original ideas.
+% A good engineer is a person who makes a design that works with as few original ideas as possible.
+% There are no prima donnas in engineering.}{Freeman Dyson 
+% \nocite{dyson_disturbing_1979}
+% }
+
+% \include{A1-agradecimentos}
+\include{A2-resumo}
+\include{A3-abstract}
+
+\printglossaries
+\listoffigures
+\listoftables
+\tableofcontents
+
+\include{01-introducao}
+\include{02-fundamentacao_teorica}
+\include{03-trabalhos_relacionados}
+\include{04-metodologia}
+\include{05-proposta_experimental}
+% \include{06-resultados_experimentais}
+\include{06-conclusao}
+
+\printbibliography
+%\printindex
+\include{C-anexos}
+
+\end{document}
