@@ -92,7 +92,9 @@ A parte restante da arquitetura segue de acordo com a original, exceto que tamb�
 
 \begin{figure}[H]
     \centering
-    \caption{Recorrência do Módulo de Autoatenção}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Representação esquemática da recorrência do Módulo de Autoatenção. O diagrama ilustra o processamento recursivo na arquitetura proposta, recursividade esta que permite que as características aprendidas sejam refinadas ao longo de múltiplas iterações, aumentando a capacidade do modelo de capturar dependências complexas nos dados.
+    }
     \includegraphics[width=0.7\textwidth]{figures/fig030.png}
     \caption*{Fonte: Autor}
     \label{fig:fig030}
@@ -124,6 +126,7 @@ O conjunto de dados \gls{acdc} foi a referência inicial, principalmente para a 
 
 \begin{figure}[h!]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Captura Diastólica CMD}
     \includegraphics[width=0.65\textwidth]{figures/fig018.png}
     \caption*{Fonte: Autor}
@@ -131,8 +134,9 @@ O conjunto de dados \gls{acdc} foi a referência inicial, principalmente para a 
 \end{figure}
 
 \begin{figure}[h!]
-    \caption{Captura Diastólica de CMH}
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Captura Diastólica de CMH}
     \includegraphics[width=0.65\textwidth]{figures/fig019.png}
     \caption*{Fonte: Autor}
     \label{fig:fig019}
@@ -140,6 +144,7 @@ O conjunto de dados \gls{acdc} foi a referência inicial, principalmente para a 
 
 \begin{figure}[h!]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Captura Diastólica NOR}
     \includegraphics[width=0.65\textwidth]{figures/fig020.png}
     \caption*{Fonte: Autor}
@@ -178,7 +183,9 @@ As métricas resultantes podem ser conferidas na Tabela \ref{tab:metrics}. A mat
 
 \begin{figure}[h!]
     \centering
-    \caption{Matriz de Confusão -  Modelo Base}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Matriz de confusão do modelo base, apresentando os resultados da classificação binária. Observa-se 20 verdadeiros negativos, 9 verdadeiros positivos, 10 falsos positivos e 11 falsos negativos, totalizando 50 amostras com acurácia de 58\%.
+    }
     \includegraphics[width=0.55\textwidth]{figures/fig016.png}
     \caption*{Fonte: Autor}
     \label{fig:fig016}
@@ -186,7 +193,9 @@ As métricas resultantes podem ser conferidas na Tabela \ref{tab:metrics}. A mat
 
 \begin{figure}[h!]
     \centering
-    \caption{ROC}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Curva \gls{roc} obtida pelo modelo proposto, ilustrando a relação entre a taxa de verdadeiros positivos (sensibilidade) e a taxa de falsos positivos.
+    }
     \includegraphics[width=0.75\textwidth]{figures/fig017.png}
     \caption*{Fonte: Autor}
     \label{fig:fig017}
@@ -197,7 +206,9 @@ Para o registro dos resultados foi utilizada a ferramenta \textit{CometML}. O \t
 
 \begin{figure}[h!]
     \centering
-    \caption{Painéis Adaptáveis - \textit{CometML}}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Painéis adaptáveis gerados pela plataforma \textit{CometML} durante o treinamento do modelo. A visualização superior apresenta a evolução da função de perda (loss) ao longo dos passos de treinamento, com picos iniciais que se estabilizam no decorrer do treino. Os painéis inferiores mostram as métricas finais obtidas: acurácia de treinamento de 100\% e acurácia de teste de 58\% (valor 0.58)., evidenciando um possível sobreajuste do modelo.  
+    }
     \includegraphics[width=1\textwidth]{figures/fig028.png}
     \caption*{Fonte: Autor}
     \label{fig:fig028}
@@ -206,7 +217,8 @@ Para o registro dos resultados foi utilizada a ferramenta \textit{CometML}. O \t
 
 \begin{figure}[h!]
     \centering
-    \caption{Valores Coletados no Treino - \textit{CometML}}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Valores Coletados no Treino gerados pela plataforma \textit{CometML} incluindo: função de perda (loss), acurácia de treino, e teste.}
     \includegraphics[width=1\textwidth]{figures/fig029.png}
     \caption*{Fonte: Autor}
     \label{fig:fig029}
@@ -225,7 +237,9 @@ No módulo convolucional, uma primeira camada de convolução 1D aumenta o núme
 
 \begin{figure}[h!]
     \centering
-    \caption{Composição Bloco SE}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Composição Bloco SE. O diagrama ilustra o fluxo de processamento em três etapas principais: Squeeze (compressão), que reduz a dimensionalidade espacial através de Global Pooling; Excitation (excitação), composta por duas camadas totalmente conectadas (FC) com funções de ativação ReLU e Sigmoid; e Scaling (escalonamento), que recalibra os mapas de características originais. Este mecanismo permite que a rede aprenda interdependências entre canais e atribua pesos adaptativos para realçar características relevantes.
+    }
     \includegraphics[width=0.7\textwidth]{figures/fig031.png}
     \caption*{Fonte: Adaptado de \cite{lafraxoSEDARUnetSqueezeexcitationDilated2024}}
     \label{fig:fig031}
@@ -423,9 +437,11 @@ Como o \textit{SunnyBrook} tem poucos dados, apenas $45$, sendo $30$ para treino
 \section{CONSIDERAÇÕES FINAIS DO CAPÍTULO} 
 \label{sec:cap6_consideracoes_finais}
 
-Os resultados obtidos, aplicando a arquitetura original proposta por \citeonline{aiSelfAttentionBasedFusion2023} e a aplicação de diversas modificações, como a forma de concatenar para propiciar um módulo convolucional de extrair informações inter-relacionadas entre características extraídas de diferentes técnicas, a adição de um mecanismo de atenção seletiva na forma de um bloco \gls{se} antecedente ao mecanismo de autoatenção, seguiram um padrão de resultados esperados. Conforme o modelo aumenta, seus resultados também melhoram mas com ganhos mínimos dependendo do caso. Adicionar técnicas relevantes como o bloco \gls{se} aprimorou os resultados significativamente.
+Os resultados obtidos, aplicando a arquitetura original proposta por \citeonline{aiSelfAttentionBasedFusion2023} e a aplicação de diversas modificações, como a forma de concatenar para propiciar um módulo convolucional de extrair informações inter-relacionadas entre características extraídas de diferentes técnicas, a adição de um mecanismo de atenção seletiva na forma de um bloco \gls{se} antecedente ao mecanismo de autoatenção, seguiram um padrão de resultados esperados. Conforme o modelo aumenta, seus resultados também melhoram mas com ganhos mínimos dependendo do caso. Adicionar técnicas relevantes como o bloco \gls{se} aprimorou os resultados significativamente bem como o uso dos hiperparâmetros testados de forma empírica na busca de melhores resultados. 
 
 A atenção seletiva procura gerar um conjunto de pesos ao ao prever diretamente a importância de cada parte dos dados, aprendendo o valor dos pesos para cada canal no mapa de características com o objetivo de realçar ou suprimir as características de cada canal. O mecanismo de autoatenção envolve a utilização da correlação entre os conteúdos das camadas ocultas para calcular os pesos de atenção, que são então aplicados para agregar informações das camadas ocultas em uma escala global. Seguindo a intuição de utilizar diferentes mecanismos de atenção, conforme proposto pelos autores \cite{yangNeuralNetworkDesign2024a}, tal abordagem possibilitou melhoras significativas comparadas ao modelo base. 
 
-Outras adaptações também surtiram efeito, como aumentar o tamanho das características utilizadas, aplicar mais blocos de autoatenção, a adição das máscaras, etc. Os experimentos indicam que há espaço para exploração e melhorias, como por exemplo, outros mecanismos de atenção, podem trazer resultados ainda mais promissores para o âmbito de cardiomiopatia hipertrófica. 
+Outras adaptações também surtiram efeito, como aumentar o tamanho das características utilizadas, aplicar mais blocos de autoatenção, a adição das máscaras, etc. Os resultados comparando o modelo base com as versões adaptadas também podem indicar que há arquiteturas que podem funcionar melhor em certos cenário como o caso do modelo que aplicado no contexto de pulmão obteve bons resultados porém no contexto de coração os resultados não representaram a mesma qualidade.
+
+Os experimentos indicam que há espaço para exploração e melhorias, como por exemplo, outros mecanismos de atenção, podem trazer resultados ainda mais promissores para o âmbito de cardiomiopatia hipertrófica. 
 

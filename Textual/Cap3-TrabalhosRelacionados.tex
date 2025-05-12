@@ -9,7 +9,7 @@ Neste capítulo serão apresentados trabalhos e metodologias correlatos ao esfor
 \section{REVISÃO SISTEMÁTICA DA LITERATURA} 
 \label{sec:rev_sistematica}
 
-Para a fase exploratória dos trabalhos relacionados, foi utilizada a ferramenta \textit{Parsifal} \footnote{https://parsif.al} com o objetivo de identificar estudos que aplicam a análise radiômica no contexto de cardiomiopatia. O objetivo inicialmente definido foi o seguinte: ``Identificar estudos onde se aplica análise radiômica a cardiopatia. Como segunda opção, alguma outra doença de natureza cardíaca''. A pesquisa teve como objetivo responder as seguintes perguntas: quais desafios descritos nos estudos prévios e se há replicabilidade da proposta no contexto de cardiomiopatia. As palavras chaves selecionadas foram: \textit{cardiac}, \textit{cardiomyopathy} e \textit{radiomics}. A palavra de busca selecionada foi: ``\textit{radiomics} AND "data extraction" AND (\textit{cardiac} OR \textit{cardiomyopathy})''. Os resultado do filtro de busca são apresentados na Tabela \ref{tab:resultado_busca}. 
+Para a fase exploratória dos trabalhos relacionados, foi utilizada a ferramenta \textit{Parsifal} \footnote{https://parsif.al} com o objetivo de identificar estudos que aplicam a análise radiômica no contexto de cardiomiopatia. O objetivo inicialmente definido foi o seguinte: ``Identificar estudos onde se aplica análise radiômica a cardiopatia. Como segunda opção, alguma outra doença de natureza cardíaca''. A pesquisa teve como objetivo responder as seguintes perguntas: quais desafios descritos nos estudos prévios e se há replicabilidade da proposta no contexto de cardiomiopatia. As palavras chaves selecionadas foram: \textit{cardiac}, \textit{cardiomyopathy} e \textit{radiomics}. A palavra de busca selecionada foi: ``\textit{radiomics} AND "data extraction" AND (\textit{cardiac} OR \textit{cardiomyopathy})'' e a última atualização das pesquisas foram feitas em agosto de 2023. Os resultado do filtro de busca são apresentados na Tabela \ref{tab:resultado_busca}. 
 \newline
 
 \begin{table}[hbtp]
@@ -80,7 +80,8 @@ O diagrama com o funil de seleção aplicado é apresentado na Figura \ref{fig:f
 
 \begin{figure}[H]
     \centering
-    \caption{Funil da Seleção da Literatura}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Funil da Seleção da Literatura - Etapas do processo de busca, filtragem e seleção de artigos com base em critérios de inclusão, exclusão e qualidade, resultando no conjunto final de estudos analisados.}
     \includegraphics[scale=0.47]{figures/fig021.png}
     \caption*{Fonte: Autor}
     \label{fig:fig021}
@@ -102,7 +103,8 @@ No contexto da pesquisa contínua em imagens médicas e diagnóstico de câncer,
 
 \begin{figure}[htbp]
     \centering
-    \caption{Arquitetura Proposta de \citeonline{jiangMRIBasedRadiomics2021}}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Modelo de arquitetura de rede neural proposto por \citeonline{jiangMRIBasedRadiomics2021}. A imagem ilustra: (A) o fluxo principal da rede; (B) um módulo de atenção de canal; e (C) um módulo de atenção combinada (canal e espacial).}
     \includegraphics[width=0.8\textwidth]{figures/fig007.png}
     \caption*{Fonte: \cite{jiangMRIBasedRadiomics2021}}
     \label{fig:fig007}
@@ -127,8 +129,10 @@ Os resultados experimentais, avaliados no conjunto de dados público, \gls{tcia}
 Este estudo exemplifica a aplicação de técnicas avançadas de aprendizado de máquina em imagens médicas e oncologia, fornecendo um método robusto para a previsão de recorrência precoce que poderia impactar significativamente os resultados clínicos e as estratégias de tratamento em câncer de pulmão.
 
 \begin{figure}[htbp]
-    % \centering
-    \caption{Arquitetura Proposta de \citeonline{aiSelfAttentionBasedFusion2023}}
+    \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Arquitetura Proposta por 
+    \citeonline{aiSelfAttentionBasedFusion2023}, que emprega um Módulo de Fusão Baseado em Autoatenção (Self-attention based Fusion Module). O modelo integra características radiômicas, extraídas diretamente das imagens, com características de aprendizado profundo de uma rede ResNet50 pré-treinada. Ambas as vertentes de características passam por um processo de seleção (F-test) antes de serem concatenadas e processadas pelo módulo de autoatenção para a classificação final.}
     \includegraphics[scale=0.5]{figures/fig008.png}
     \caption*{Fonte: \cite{aiSelfAttentionBasedFusion2023}}
     \label{fig:fig008}
@@ -145,6 +149,7 @@ O modelo introduzido pela equipe utiliza uma combinação de mecanismos de aten�
 
 \begin{figure}[htbp]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Método proposto. \textit{DenseNet} é o modelo base, a saída da rede densa é alimentada pela rede de atenção que prioriza as fatias e regiões e gera a classificação binária do status de metilação do MGMT.
     }
     \includegraphics[width=1\textwidth]{figures/fig009.png}
@@ -158,7 +163,9 @@ Avaliado em várias métricas de classificação binária, o modelo alcançou a 
 
 \begin{figure}[htbp]
     \centering
-    \caption{Arquitetura Proposta}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Arquitetura Proposta por \citeonline{iranmehrImprovedPredictionMGMT2022} para análise de mapas de características convolucionais, que inclui bloco \gls{se} e autoatenção, segmentação de regiões integrais (representadas pelas áreas em verde e vermelho), além de uma camada \gls{lstm}. O modelo também utiliza diferentes tipos de atenção para focar em regiões específicas dos dados.
+    }
     \includegraphics[width=1\textwidth]{figures/fig010.png}
     \caption*{Fonte: Adaptado de \cite{iranmehrImprovedPredictionMGMT2022}}
     \label{fig:fig010}

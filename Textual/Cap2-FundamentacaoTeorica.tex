@@ -47,6 +47,7 @@ Na Figura \ref{fig:fig001} são apresentadas imagens de \gls{tc} e \gls{pet} com
 
 \begin{figure}[htbp]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Exemplos de aplicação da análise radiômica na identificação de tumores. 
     \newline CE = \textit{Contrast Enchanced}, HH = \textit{high-high} (filtro passa-alta)}
     \includegraphics[width=0.6\textwidth]{figures/fig001.png}
@@ -63,6 +64,7 @@ A matriz de zona do tamanho dos níveis de cinza, do termo \textit{Gray-Level Si
 
 \begin{figure}[htbp]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Aplicação de Vizinhos em Abordagens Radiômicas}
     \includegraphics[width=0.6\textwidth]{figures/fig002.png}
     \caption*{Autor: \cite{mayerhoeferIntroductionRadiomics2020}}
@@ -89,6 +91,7 @@ Como o nome sugere, a camada convolucional desempenha um papel vital no funciona
 
 \begin{figure}[h!]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Representação visual da camada convolucional. O elemento central do \textit{kernel} é aplica no vetor de entrada, que é calculado e substituído pela ponderada dele mesmo e de quaisquer pixels próximos.}
     \includegraphics[width=0.6\textwidth]{figures/fig024.png}
     \caption*{Fonte: \cite{osheaIntroductionConvolutionalNeural2015c}}
@@ -122,7 +125,8 @@ A \textit{ResNet} (Rede Residual) é uma arquitetura de rede neural profunda amp
 
 \begin{figure}[h!]
     \centering
-    \caption{Conexão de Salto}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Conexão de Salto da Arquitetura \textit{ResNet}}
     \includegraphics[width=0.6\textwidth]{figures/fig013.png}
     \caption*{Fonte: \cite{aiSelfAttentionBasedFusion2023}}
     \label{fig:fig013}
@@ -166,6 +170,8 @@ O termo $\ast$ denota convolução, $\mathbf{v}_c$ é um filtro espacial 2D e re
 Tendo como o objeto garantir que a rede seja capaz de aumentar sua sensibilidade a características informativas, para que possam ser exploradas por transformações subsequentes, e suprimir as menos úteis. Foi proposto um modelo explícito das interdependências de canal para recalibrar as respostas dos filtros em duas etapas — \textit{squeeze} e \textit{excitation} —, antes de serem alimentadas na transformação subsequente. Um diagrama de um bloco de construção \gls{se} é demonstrado na Figura \ref{fig:fig025}.
 
 \begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Fluxo do Bloco SE - Após blocos convolucionais normais, uma cama da de \textit{squeeze} seguida e uma camada de \textit{excitation} é aplicada e por fim os valores originais são escalonados pelo resultado.}
     \includegraphics[height=0.27\textwidth]{figures/fig025.png}
     \caption*{Fonte: Adaptado de \cite{huSqueezeandExcitationNetworks2018}}
@@ -215,7 +221,8 @@ A flexibilidade do bloco \gls{se} significa que ele pode ser aplicado diretament
 
 \begin{figure}[h!]
     \centering
-    \caption{Módulo SE-Resnet}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Módulo SE-Resnet, que estende o bloco ResNet tradicional com um bloco \gls{se} para recalibrar os canais da saída residual com base em informações globais, aprimorando a representação de características relevantes.}
     \includegraphics[width=0.6\textwidth]{figures/fig026.png}
     \caption*{Fonte: Adaptado de \cite{huSqueezeandExcitationNetworks2018}}
     \label{fig:fig026}
@@ -227,43 +234,45 @@ O valor $r$ é um hiperparâmetro importante pois permite variar a capacidade e 
 
 \begin{figure}[h!]
     \centering
-    \caption{Conjunto de Validação Aplicado na SE-ResNet-50}
+    \caption{Desempenho da SE-ResNet-50 com diferentes valores do fator de redução $r$, demonstrando variação nos erros top-1 e top-5 e no número de parâmetros, em comparação com a arquitetura ResNet-50 original.}
     \includegraphics[width=0.6\textwidth]{figures/fig027.png}
     \caption*{Fonte: Adaptado de \cite{huSqueezeandExcitationNetworks2018}}
     \label{fig:fig027}
 \end{figure}
 
 % ----------------- ALGORITMO SQUEEZE AND EXCITATION NET ------------------
+
 \begin{algorithm}
 \caption{Bloco Squeeze-and-Excitation (SE)}
 \label{alg:se_block}
 \textbf{Entrada:} Mapa de características $\mathbf{U} \in \mathbb{R}^{H \times W \times C}$\\
 \textbf{Saída:} Mapa de características recalibrado $\tilde{\mathbf{U}} \in \mathbb{R}^{H \times W \times C}$
 \begin{algorithmic}[1]
-\STATE \textbf{Squeeze:} Executa o \textit{average pooling} global para agregar as dimensões espaciais:
+\State \textbf{Squeeze:} Executa o \textit{average pooling} global para agregar as dimensões espaciais:
 \[
 z_c = \frac{1}{H \times W} \sum_{i=1}^H \sum_{j=1}^W u_c(i, j), \quad \forall c \in \{1, \dots, C\}
 \]
-\STATE \textbf{Excitation:} Usa duas camadas totalmente conectadas para modelar a interdependência dos canais:
+
+\State \textbf{Excitation:} Usa duas camadas totalmente conectadas para modelar a interdependência dos canais:
 \[
 \mathbf{s} = \sigma(\mathbf{W}_2 \delta(\mathbf{W}_1 \mathbf{z}))
 \]
-onde:
+\textbf{onde:}
 \begin{itemize}
-    \item $\mathbf{W}_1 \in \mathbb{R}^{\frac{C}{r} \times C}$: Camada de redução de dimensionalidade
-    \item $\mathbf{W}_2 \in \mathbb{R}^{C \times \frac{C}{r}}$: Camada de restauração da dimensão original
-    \item $\delta$: Ativação ReLU
-    \item $\sigma$: Ativação Sigmoide
+  \item $\mathbf{W}_1 \in \mathbb{R}^{\frac{C}{r} \times C}$: Camada de redução de dimensionalidade
+  \item $\mathbf{W}_2 \in \mathbb{R}^{C \times \frac{C}{r}}$: Camada de restauração da dimensão original
+  \item $\delta$: Ativação ReLU
+  \item $\sigma$: Ativação Sigmoide
 \end{itemize}
-\STATE \textbf{Reescala:} Recalibra o mapa de características usando as ativações:
+
+\State \textbf{Reescala:} Recalibra o mapa de características usando as ativações:
 \[
 \tilde{\mathbf{u}}_c = s_c \cdot \mathbf{u}_c, \quad \forall c \in \{1, \dots, C\}
 \]
-\RETURN $\tilde{\mathbf{U}} = [\tilde{\mathbf{u}}_1, \tilde{\mathbf{u}}_2, \dots, \tilde{\mathbf{u}}_C]$
-\end{algorithmic}
-% \caption*{Fonte: Autor}
-\end{algorithm}
 
+\State \textbf{return} $\tilde{\mathbf{U}} = [\tilde{\mathbf{u}}_1, \tilde{\mathbf{u}}_2, \dots, \tilde{\mathbf{u}}_C]$
+\end{algorithmic}
+\end{algorithm}
 
 %--------------------------------------------------------
 \section{ARQUITETURA TRANSFORMERS}
@@ -273,7 +282,8 @@ Os \textit{transformers} consistem em uma arquitetura que possui como um de seus
 
 \begin{figure}[htbp]
     \centering
-    \caption{Arquitetura \textit{Transformers}}
+    \captionsetup{width=0.98\textwidth, justification=justified}
+    \caption{Arquitetura \textit{Transformers} - Modelo composto por codificador e decodificador com camadas de atenção multi-cabeça, normalização, \textit{feed-forward} e codificação posicional.}
     \includegraphics[scale=0.6]{figures/fig004.png}
     \caption*{Autor: \citeonline{vaswaniAttentionAllYou2023}}
     \label{fig:fig004}
@@ -283,6 +293,7 @@ Os \textit{transformers} são compostos por um \textit{Encoder} e um \textit{Dec
 
 \begin{figure}[htbp]
     \centering
+    \captionsetup{width=0.98\textwidth, justification=justified}
     \caption{Módulo de Atenção Multi-Cabeças}
     \includegraphics[width=0.6\textwidth]{figures/fig005.png}
     \caption*{Autor:\cite{vaswaniAttentionAllYou2023}}
