@@ -433,6 +433,37 @@ Como o \textit{SunnyBrook} tem poucos dados, apenas $45$, sendo $30$ para treino
 \label{tab:metrics_sunny_se}
 \end{table}
 
+
+%--------------------------------------------------------
+\subsection{Testes Estatísticos}
+\label{subsec:testes_estatisticos}
+
+Para validar estatisticamente os resultados obtidos com os diferentes modelos avaliados, foi realizado um teste t de uma amostra (\textit{one-sample t-test}) com valor de referência fixado em $0{,}58$, correspondente à acurácia observada no modelo base. A Tabela \ref{tab:teste_estatistico} resume os valores médios de acurácia, desvios padrão, estatísticas t e p-valores associados a cada cenário avaliado: modelo base, conjunto ACDC e conjunto Sunny. O objetivo do teste foi verificar se as acurácias médias obtidas pelos modelos diferem significativamente do valor de referência, considerando um nível de significância $\alpha = 0{,}05$.
+
+Os resultados mostram que todos os modelos apresentam diferenças estatisticamente significativas em relação ao valor de referência, uma vez que os p-valores obtidos são inferiores ao limiar de 0,05. O modelo base, apesar de apresentar média de acurácia próxima ao valor de referência (0{,}577), teve p-valor de aproximadamente $2{,}10 \times 10^{-2}$, suficiente para rejeitar a hipótese nula. Já os modelos ACDC e SUNNY apresentaram desempenhos substancialmente superiores, com acurácias médias de 0,78 e 0,83 respectivamente, além de t-estatísticas elevadas e p-valores extremamente baixos, reforçando a significância estatística dos ganhos obtidos com a abordagem proposta. Esses resultados indicam que o uso combinado de características radiômicas e profundas, aliado a mecanismos de atenção, resulta em modelos mais eficazes para a tarefa de classificação de cardiomiopatias.
+
+\begin{table}[H]
+    \centering
+    \caption{Resultados dos testes estatísticos para acurácia dos modelos}
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    \textbf{Modelo} & \textbf{Média Acurácia} & \textbf{Desvio Padrão} & \textbf{T-Estatística} & \textbf{P-valor} \\
+    \hline
+    BASE  & 0.58 & 0.01 & -2.52 & $2.10 \times 10^{-2}$ \\
+    ACDC  & 0.78 & 0.00 & 106.80 & $7.18 \times 10^{-28}$ \\
+    SUNNY & 0.82 & 0.03 & 41.50 & $4.17 \times 10^{-20}$ \\
+    \hline
+    \end{tabular}
+    \caption*{Fonte: Autor}
+    \begin{flushleft}
+    \footnotesize
+    \textbf{Nota}: O valor de referência do teste ($H_0$) é 0{,}58. Todos os modelos apresentaram \textbf{significância estatística} (\textit{p-value} $<$ 0{,}05), indicando rejeição da hipótese nula.
+    \end{flushleft}
+    \label{tab:teste_estatistico}
+\end{table}
+
+
+
 %--------------------------------------------------------
 \section{CONSIDERAÇÕES FINAIS DO CAPÍTULO} 
 \label{sec:cap6_consideracoes_finais}
